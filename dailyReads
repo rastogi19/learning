@@ -2,3 +2,19 @@
 Gitignore file
 Featured snippet from the web
 gitignore file is a text file that tells Git which files or folders to ignore in a project. A local . gitignore file is usually placed in the root directory of a project. You can also create a global . gitignore file and any entries in that file will be ignored in all of your Git repositories.
+
+
+http://bdadam.com/blog/automatically-loading-grunt-tasks-with-matchdep.html
+Automatically loading Grunt tasks with matchdep
+11th March 2014 | by Adam Beres-Deak | javascript, node.js, grunt
+
+Have you ever installed a new GruntJS-plugin and then forgotten to load it as a task in the gruntfile.js? Matchdep is a handy tool, which can solve this issue.
+
+What is matchdep?
+Matchdep is a tool which can filter node.js dependencies, which are in the package.json file.
+
+Installing it is very easy: npm install --save matchdep
+
+Automatically loading GruntJS tasks
+require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+What we are doing here is: basically reading all (dev)dependencies from the package.json and filtering those out which begin with 'grunt-'. These are tasks like all Grunt contrib tasks (grunt-contrib-concat, grunt-contrib-less, grunt-contrib-copy, etc.) and other Grunt specific tasks (like grunt-browserify or grunt-hashres). After filtering we load them as tasks.
